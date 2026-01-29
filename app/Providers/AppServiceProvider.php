@@ -19,6 +19,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        if (!Stringable::hasMacro('doesntStartWith')) {
+        Stringable::macro('doesntStartWith', function ($needles) {
+            return ! Str::startsWith($this->value, $needles);
+        });
+    }
     }
 }
