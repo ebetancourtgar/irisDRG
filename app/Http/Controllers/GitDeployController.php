@@ -9,22 +9,16 @@ class GitDeployController extends Controller
 {
     public function deploy(Request $request)
     {
-        // 1. Definir una clave secreta (Cámbiala por algo seguro)
-        $secret = 'TuClaveSecreta123'; 
+        $secret = 'I22r01i20s24'; 
         
-        // 2. Obtener la firma que envía GitHub
         $signature = $request->header('X-Hub-Signature-256');
 
-        // 3. Verificar que la petición sea realmente de GitHub
         $payload = $request->getContent();
         $hash = 'sha256=' . hash_hmac('sha256', $payload, $secret);
 
         if (hash_equals($hash, $signature)) {
-            // 4. Ejecutar el comando de actualización en el servidor
-            // Ajustamos a tu ruta: /home/intran23/almacen.intranetdrg.com.mx
-            $output = shell_exec('cd /home/intran23/almacen.intranetdrg.com.mx && git pull origin master 2>&1');
+            $output = shell_exec('cd /home4/intran23/almacen.intranetdrg.com.mx && git pull origin master 2>&1');
             
-            // Guardamos el resultado en el log de Laravel por si algo falla
             Log::info("Git Pull automático: " . $output);
             
             return response()->json(['status' => 'success', 'output' => $output], 200);
