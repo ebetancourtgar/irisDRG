@@ -7,6 +7,11 @@ use App\Http\Controllers\DashboardController;
 Route::resource('dashboard', DashboardController::class);
 
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
