@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Stringable;
+
 
 class AppServiceProvider extends ServiceProvider
 {
