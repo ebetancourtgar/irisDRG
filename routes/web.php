@@ -9,7 +9,7 @@ Route::resource('dashboard', DashboardController::class);
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 
 
