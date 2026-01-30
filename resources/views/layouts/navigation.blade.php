@@ -7,10 +7,11 @@
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard.index') }}" class="flex items-center space-x-3 group">
                         <div class="bg-gradient-to-br from-slate-700 to-slate-900 p-2.5 rounded-xl shadow-lg group-hover:shadow-xl transform group-hover:-translate-y-0.5 transition-all duration-200">
-                            <x-application-logo class="w-8 h-8 text-white" />
+                            {{--  --}}
+                            <x-application-logo class="w-14 h-8 text-white" />
                         </div>
                         <div class="hidden lg:block">
-                            <div class="text-lg font-bold text-gray-900 dark:text-white">DRG - Iris</div>
+                            <div class="text-lg font-bold text-gray-900 dark:text-white">Iris</div>
                             <div class="text-xs text-gray-500 dark:text-gray-400 -mt-0.5">Gestión Industrial</div>
                         </div>
                     </a>

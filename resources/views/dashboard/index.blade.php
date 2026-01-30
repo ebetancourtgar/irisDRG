@@ -296,10 +296,15 @@
                     </div>
                 </div>
 
+              
+
             </div>
+            
 
-
+  
 
         </div>
+        {{-- footer --}}
+            <x-industrial-footer/>
     </div>
 </x-app-layout>
