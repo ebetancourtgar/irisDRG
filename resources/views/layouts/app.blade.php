@@ -60,23 +60,10 @@
                 {{ $slot }}
             </main>
 
-            {{-- Footer Global (opcional, aparece solo en páginas que no tengan su propio footer) --}}
-            <footer class="relative z-10 mt-auto py-6 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border-t border-gray-200 dark:border-gray-700">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex flex-col md:flex-row items-center justify-between text-center md:text-left">
-                        <div class="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400 mb-2 md:mb-0">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                            </svg>
-                            <span>{{ config('app.name', 'DRG - Iris') }}</span>
-                        </div>
-                        <div class="text-xs text-gray-500 dark:text-gray-500">
-                            © {{ date('Y') }} Sistema de Gestión Industrial. Todos los derechos reservados.
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            
+        {{-- Footer --}}
         </div>
+        
         {{-- Scripts adicionales de las páginas --}}
         @stack('scripts')
     </body>
