@@ -78,7 +78,10 @@
                         <button class="inline-flex items-center px-4 py-2 border border-gray-200 dark:border-gray-700 text-sm font-medium rounded-lg text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition-all duration-200 shadow-sm hover:shadow-md">
                             <div class="flex items-center space-x-3">
                                 <div class="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-slate-600 to-slate-800 text-white font-bold text-xs">
+                                
                                     {{ strtoupper(substr(Auth::user()->name, 0, 2)) }}
+                                  
+                                
                                 </div>
                                 <div class="hidden lg:block text-left">
                                     <div class="font-semibold text-sm">{{ Auth::user()->name }}</div>
