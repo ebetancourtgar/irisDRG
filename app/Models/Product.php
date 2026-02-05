@@ -17,6 +17,7 @@ class Product extends Model
         'barcode',
         'brand_id',
         'category_id',
+        'part_number',
     ];
 
     public function category(): BelongsTo

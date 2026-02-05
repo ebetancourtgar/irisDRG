@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('barcode')->unique()->index();
             $table->foreignId('brand_id')->constrained('brands')->onDelete('cascade');
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
+            $table->string('part_number')->nullable();
 
             $table->softDeletes();
             $table->timestamps();

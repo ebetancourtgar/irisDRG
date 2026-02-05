@@ -15,10 +15,15 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             ['name' => 'Tóner'],
-            ['name' => 'Cartuchos de tinta'],
+            ['name' => 'Tinta'],
+            ['name' => 'Consumibles'],
             ['name' => 'Refacciones'],
-            ['name' => 'Equipo Nuevo'],
-            ['name' => 'Equipo Usado'],
+            ['name' => 'Multifuncional Nuevo'],
+            ['name' => 'Multifuncional Usado'],
+            ['name' => 'Impresora Usada'],
+            ['name' => 'Impresora Nueva'],
+            
+
         ];
         
         foreach ($categories as $category){

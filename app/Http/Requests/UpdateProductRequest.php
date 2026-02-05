@@ -31,6 +31,7 @@ class UpdateProductRequest extends FormRequest
             'name' => 'required|string|max:255',
             'brand_id'    => 'required|exists:brands,id',
             'category_id' => 'required|exists:categories,id',
+            'part_number' => 'nullable|string|max:255',
 
         ];
     }

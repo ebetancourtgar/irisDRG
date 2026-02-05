@@ -168,6 +168,29 @@
                         <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Seleccione la categoría correspondiente</p>
                     </div>
 
+                    {{-- Campo Part Number --}}
+                    <div>
+                        <x-input-label for="part_number" :value="'Numero de Parte (Opcional)'" class="flex items-center text-sm font-semibold text-gray-700 dark:text-gray-300" />
+                        <div class="mt-2 relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                            <x-text-input 
+                                id="part_number" 
+                                name="part_number" 
+                                type="text" 
+                                class="pl-10 block w-full border-gray-300 dark:border-gray-600 focus:border-slate-500 focus:ring-slate-500 rounded-lg shadow-sm" 
+                                :value="old('part_number')"  
+                                autocomplete="part_number"
+                                placeholder="Ej: 1T02S50US1" />
+                           
+                        </div>
+                        <x-input-error class="mt-2" :messages="$errors->get('part_number')" />
+                        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Ingrese el número de parte</p>
+                    </div>
+
                     {{-- Sección de ayuda --}}
                     <div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-4 rounded-r-lg">
                         <div class="flex">

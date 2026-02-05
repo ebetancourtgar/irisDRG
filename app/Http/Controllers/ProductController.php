@@ -21,7 +21,7 @@ class ProductController extends Controller
 
         $categories = Category::orderBy('name')->get();
 
-        $products = Product::with(['brand', 'category'])
+        $products = Product::with(['brand', 'category', 'part_number'])
         ->filter($request->only(['category', 'search'])) 
         ->latest()
         ->paginate(10)
