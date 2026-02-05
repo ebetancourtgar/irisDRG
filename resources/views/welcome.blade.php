@@ -210,8 +210,8 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                             </svg>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Órdenes de Trabajo</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Gestiona y supervisa todas tus órdenes de producción en tiempo real.</p>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Control De inventario</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Gestiona y supervisa tu inventario en tiempo real.</p>
                     </div>
 
                     <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">

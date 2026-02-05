@@ -33,7 +33,7 @@
                     <div class="flex items-center justify-between">
                         <div class="flex-1">
                             <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">
-                                ¡Bienvenido, {{ Auth::user()->name }}!
+                                ¡Bienvenido!
                             </h3>
                             <p class="text-gray-300 text-sm md:text-base">
                                 Gestiona tu Sistema desde aqui.
@@ -184,13 +184,7 @@
                         {{-- Banner superior con gradiente --}}
                         <div class="h-2 bg-gradient-to-r from-green-500 via-green-600 to-green-700"></div>
                         
-                        {{-- Badge de estado (opcional) --}}
-                        <div class="absolute top-4 right-4">
-                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
-                                <span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-1.5 animate-pulse"></span>
-                                Activo
-                            </span>
-                        </div>
+                       
                         
                         <div class="p-6">
                             {{-- Icono principal --}}
@@ -200,14 +194,14 @@
 
                             {{-- Contenido --}}
                             <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-                                Control de Inventario
+                                Catalogo De Productos
                             </h3>
                             <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 min-h-[3rem]">
-                                Monitoreo en tiempo real de existencias, entradas y salidas de materiales.
+                                Alta de productos del sistema.
                             </p>
 
                             {{-- Botón habilitado --}}
-                            <a href="{{--  --}}" 
+                            <a href="{{ route('products.index') }}" 
                             class="inline-flex items-center justify-center w-full px-5 py-3 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold text-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-200 group-hover:scale-105">
                                 <i class="fas fa-box-open mr-2"></i>
                                 <span>Ver Inventario</span>
