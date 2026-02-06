@@ -30,6 +30,8 @@ class Product extends Model
         return $this->belongsTo(Brand::class);
     }
 
+  
+
     /**
      * Scope para buscar productos por su código de barras.
      * Uso: Product::byBarcode('123456')->first();
