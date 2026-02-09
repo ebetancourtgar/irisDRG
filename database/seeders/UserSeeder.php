@@ -39,6 +39,14 @@ class UserSeeder extends Seeder
             
         ]);
 
+        $gteAlmacen = User::create(
+            [
+                'email' => 'gtealmacen@drg.mx',
+                'name' => 'Karla Burciaga',
+                'password' => bcrypt('kc1BcI8u'),
+            ]
+        );
+
         $admin->assignRole($adminRole);
 
 
