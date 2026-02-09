@@ -38,7 +38,6 @@ class UserSeeder extends Seeder
             'password' => bcrypt('password'),
             
         ]);
-
         $gteAlmacen = User::create(
             [
                 'email' => 'gtealmacen@drg.mx',
