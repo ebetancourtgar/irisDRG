@@ -101,6 +101,7 @@
                             <div class="flex items-center space-x-3">
                                 <div class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-slate-600 to-slate-800 text-white font-bold">
                                     {{ strtoupper(substr(Auth::user()->name, 0, 2)) }}
+                                    
                                 </div>
                                 <div>
                                     <div class="font-semibold text-sm text-gray-900 dark:text-white">{{ Auth::user()->name }}</div>

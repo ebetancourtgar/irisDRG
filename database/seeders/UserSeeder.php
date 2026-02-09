@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
     {
         //Aqui Creamos los roles
         $adminRole = Role::firstOrCreate(['name' => 'Admin']);
+        $gteAlmacenRole = Role::firstOrCreate(['name' => 'Gte. Almacen']);
 
         //Aqui almacenamos los permisos en la variable $permissions
         $permissions = [
@@ -47,6 +48,8 @@ class UserSeeder extends Seeder
         );
 
         $admin->assignRole($adminRole);
+
+        $gteAlmacen->assignRole($gteAlmacenRole);
 
 
 

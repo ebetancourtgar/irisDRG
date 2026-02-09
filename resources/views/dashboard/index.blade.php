@@ -33,7 +33,7 @@
                     <div class="flex items-center justify-between">
                         <div class="flex-1">
                             <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">
-                                ¡Bienvenido!
+                                ¡Bienvenido! 
                             </h3>
                             <p class="text-gray-300 text-sm md:text-base">
                                 Gestiona tu Sistema desde aqui.
