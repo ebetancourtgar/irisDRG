@@ -4,6 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\BranchController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
 
 Route::resource('dashboard', DashboardController::class);
 
@@ -20,6 +23,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('products', ProductController::class);
+
+    Route::resource('branches', BranchController::class);
+    Route::resource('users', UserController::class);
+    Route::resource('roles', RoleController::class);
 });
 
 require __DIR__.'/auth.php';
