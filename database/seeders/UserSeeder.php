@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
         //Aqui Creamos los roles
         $adminRole = Role::firstOrCreate(['name' => 'Admin']);
         $gteAlmacenRole = Role::firstOrCreate(['name' => 'Gte. Almacen']);
+        $operationsSupervisorRole = Role::firstOrCreate(['name' => 'Operations Supervisor']);
 
         //Aqui almacenamos los permisos en la variable $permissions
         $permissions = [
@@ -46,12 +47,17 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('kc1BcI8u'),
             ]
         );
+        $operationsSupervisor = User::create(
+            [
+                'email' => 'asanchez@drg.mx',
+                'name' => 'Operations Supervisor',
+                'password' => bcrypt('Ajelet#26'),
+            ]
+        );
 
         $admin->assignRole($adminRole);
-
         $gteAlmacen->assignRole($gteAlmacenRole);
-
-
+        $operationsSupervisor->assignRole($operationsSupervisorRole);
 
 
     }
