@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
         $adminRole = Role::firstOrCreate(['name' => 'Admin']);
         $gteAlmacenRole = Role::firstOrCreate(['name' => 'Gte. Almacen']);
-        $operationsSupervisorRole = Role::firstOrCreate(['name' => 'Operations Supervisor']);
+        $operationsSupervisorRole = Role::firstOrCreate(['name' => 'Supervisor de Operaciones']);
         $roleCallCenter = Role::create(['name' => 'Call Center']);
         $roleTecnico = Role::create(['name' => 'Tecnico']);
 
@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
             'manage users',
             'view user', 'create user', 'edit user',
             'view branch', 'create branch', 'edit branch',
-            'view schedule', 'create schedule', 'edit schedule',
+            'view schedule', 'create schedule', 'edit schedule', 'delete schedule',
         ];
 
         foreach ($permissions as $permission) {
