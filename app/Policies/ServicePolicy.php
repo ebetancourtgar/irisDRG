@@ -13,7 +13,7 @@ class ServicePolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasPermissionTo('view schedule');
+        return $user->hasPermissionTo('manage schedules');
     }
 
     /**

@@ -21,6 +21,7 @@ return new class extends Migration
 
             $table->foreignId('technician_id')->constrained('users');
             $table->foreignId('created_by')->constrained('users');
+            $table->foreignId('branch_id')->constrained('branches');
             $table->timestamps();
             $table->softDeletes();
         });

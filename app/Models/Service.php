@@ -19,6 +19,7 @@ class Service extends Model
         'status',
         'technician_id',
         'created_by',
+        'branch_id',
     ];
 
     protected $casts = [

@@ -36,8 +36,10 @@
                                 ¡Bienvenido(a) {{ auth()->user()->name }}! 
                             </h3>
                             <p class="text-gray-300 text-sm md:text-base">
-                               {{ auth()->user()->getRoleNames()->first() }} 
+                               {{ auth()->user()->getRoleNames()->first() }}
                             </p>
+
+                            
                         </div>
                         <div class="hidden md:block">
                             <div class="bg-white/10 backdrop-blur-sm rounded-full p-6">
@@ -95,9 +97,53 @@
                     </div>
                 @endcan
                 -->
+
+                {{-- Tarjeta: Programación de Soporte --}}
+                @can('manage schedules')
+                <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="relative">
+                        {{-- Banner superior con gradiente Índigo/Violeta --}}
+                        <div class="h-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
+                        
+                        {{-- Badge de estado --}}
+                        <div class="absolute top-4 right-4">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200">
+                                <span class="w-1.5 h-1.5 bg-indigo-500 rounded-full mr-1.5 animate-pulse"></span>
+                                Nuevo
+                            </span>
+                        </div>
+
+                        <div class="p-6">
+                            {{-- Icono principal --}}
+                            <div class="w-14 h-14 bg-gradient-to-br from-indigo-100 to-purple-200 dark:from-indigo-900 dark:to-purple-800 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                {{-- Usando FontAwesome como en tus otras tarjetas --}}
+                                <i class="fas fa-calendar-check text-indigo-600 dark:text-indigo-400 text-2xl"></i>
+                            </div>
+
+                            {{-- Contenido --}}
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                                Programación Soporte
+                            </h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 min-h-[3rem]">
+                                Agenda servicios técnicos, asigna personal y gestiona el estatus de las visitas.
+                            </p>
+
+                            {{-- Botón --}}
+                            <a href="{{ route('services.index') }}" 
+                            class="inline-flex items-center justify-center w-full px-5 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold text-sm rounded-lg shadow-md hover:shadow-lg transition-all duration-200 group-hover:scale-105">
+                                <i class="fas fa-tools mr-2"></i>
+                                <span>Ver Agenda</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                @endcan
+
+
                 
                 {{-- Tarjeta 2: Catálogo de Productos --}}
-                @can('manage-products')
+               
+                @can('manage products')
                     <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 transform hover:-translate-y-1">
                         <div class="relative">
                             {{-- Banner superior con gradiente --}}
@@ -135,6 +181,7 @@
                             </div>
                         </div>
                     </div>
+                   
                 @endcan
 
                 {{-- Tarjeta 3: Auditoría de Embarque --}}
@@ -179,6 +226,7 @@
             -->
 
                 {{-- Tarjeta 4: Inventario --}}
+                @can('manage products')
                 <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                     <div class="relative">
                         {{-- Banner superior con gradiente --}}
@@ -209,10 +257,12 @@
                         </div>
                     </div>
                 </div>
+                @endcan
 
                 
 
                 {{-- Tarjeta 5: Reportes --}}
+                @can('manage products')
                 <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                     <div class="relative">
                         {{-- Banner superior con gradiente --}}
@@ -249,6 +299,7 @@
                         </div>
                     </div>
                 </div>
+                @endcan
 
                 {{-- Tarjeta 6: Configuración (Próximamente) --}}
                 <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden opacity-75">

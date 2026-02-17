@@ -6,6 +6,8 @@ use App\Models\Dashboard;
 use App\Http\Requests\StoreDashboardRequest;
 use App\Http\Requests\UpdateDashboardRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
