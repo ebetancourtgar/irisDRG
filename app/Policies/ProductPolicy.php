@@ -8,6 +8,14 @@ use Illuminate\Auth\Access\Response;
 
 class ProductPolicy
 {
+    public function before(User $user, string $ability): bool|null
+    {
+        if ($user->hasAnyRole(['Admin', 'Direccion'])) {
+            return true; 
+        }
+
+        return null; 
+    }
     /**
      * Determine whether the user can view any models.
      */

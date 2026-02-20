@@ -11,7 +11,6 @@ use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 
-
 class UserController extends Controller
 {
     /**
