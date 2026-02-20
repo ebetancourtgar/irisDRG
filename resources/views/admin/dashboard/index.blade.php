@@ -38,9 +38,8 @@
                             <p class="text-gray-300 text-sm md:text-base">
                                {{ auth()->user()->getRoleNames()->first() }}
                             </p>
-
-                            
                         </div>
+                        
                         <div class="hidden md:block">
                             <div class="bg-white/10 backdrop-blur-sm rounded-full p-6">
                                 <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

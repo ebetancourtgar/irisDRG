@@ -20,10 +20,17 @@ class Service extends Model
         'technician_id',
         'created_by',
         'branch_id',
+        'started_at',
+        'finished_at',
+        'cliente',
+        'folio',
+        
     ];
 
     protected $casts = [
         'scheduled_at' => 'datetime',
+        'started_at' => 'datetime',
+        'finished_at' => 'datetime',
     ];
 
     public function technician()
@@ -39,5 +46,15 @@ class Service extends Model
     public function creator()
     {
         return $this->belongsTo(User::class, 'created_by');
+    }
+
+ 
+    
+    public function getDurationAttribute()
+    {
+        if ($this->started_at && $this->finished_at) {
+            return $this->started_at->diff($this->finished_at)->format('%H:%I');
+        }
+        return 'N/A';
     }
 }

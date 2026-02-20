@@ -18,10 +18,17 @@ return new class extends Migration
             $table->string('service_type'); 
             $table->dateTime('scheduled_at'); 
             $table->string('status')->default('pendiente'); 
+            $table->string('cliente')->nullable();
+            $table->string('folio')->nullable();
 
             $table->foreignId('technician_id')->constrained('users');
             $table->foreignId('created_by')->constrained('users');
             $table->foreignId('branch_id')->constrained('branches');
+
+            $table->dateTime('started_at')->nullable(); 
+            $table->dateTime('finished_at')->nullable();
+
+
             $table->timestamps();
             $table->softDeletes();
         });

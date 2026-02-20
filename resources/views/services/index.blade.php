@@ -90,6 +90,8 @@
                                         <span>Servicio</span>
                                     </div>
                                 </th>
+                                
+
                                 <th scope="col" class="px-6 py-4 text-left text-xs font-bold text-gray-100 uppercase tracking-wider">
                                     <span>Tipo & Fecha</span>
                                 </th>
@@ -119,10 +121,15 @@
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                                 </svg>
                                             </div>
+                                            <div>
+                                                <div class="text-sm font-semibold text-gray-900 dark:text-gray-100">{{ $service->id }}</div>
+
+                                            </div>
                                             <div class="ml-4">
                                                 <div class="text-sm font-semibold text-gray-900 dark:text-gray-100">{{ $service->title }}</div>
                                                 <div class="text-xs text-gray-500 dark:text-gray-400 max-w-xs truncate">{{ $service->description ?? 'Sin detalles adicionales' }}</div>
                                             </div>
+
                                         </div>
                                     </td>
                                     

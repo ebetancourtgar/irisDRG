@@ -56,6 +56,85 @@
                     </span>
                 </div>
 
+              
+
+                    {{-- PANEL DE ACCIONES DEL TÉCNICO --}}
+                    @if(auth()->id() === $service->technician_id || auth()->user()->hasRole('Admin'))
+                        
+                        <div class="mt-4 px-6">
+                            {{-- CASO 1: El servicio está PENDIENTE -> Botón Iniciar --}}
+                            @if($service->status === 'pendiente')
+                                <form action="{{ route('services.start', $service) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="w-full md:w-auto inline-flex items-center justify-center px-6 py-3 bg-blue-600 border border-transparent rounded-lg font-semibold text-white text-sm uppercase tracking-widest hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:border-blue-900 focus:ring focus:ring-blue-300 disabled:opacity-25 transition shadow-lg transform hover:-translate-y-0.5">
+                                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        Iniciar Servicio (Check-In)
+                                    </button>
+                                </form>
+
+                            {{-- CASO 2: El servicio está EN PROCESO -> Mostrar hora inicio y Botón Finalizar --}}
+                            @elseif($service->status === 'en_proceso')
+                                <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 flex flex-col md:flex-row items-center justify-between">
+                                    <div class="mb-4 md:mb-0">
+                                        <h4 class="text-blue-800 dark:text-blue-300 font-bold text-lg flex items-center">
+                                            <span class="relative flex h-3 w-3 mr-3">
+                                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                                            <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                                            </span>
+                                            Servicio en Curso
+                                        </h4>
+                                        <p class="text-sm text-blue-600 dark:text-blue-400 mt-1">
+                                            Iniciado: {{ $service->started_at->format('h:i A') }} 
+                                            ({{ $service->started_at->diffForHumans() }})
+                                        </p>
+                                    </div>
+
+                                    <form action="{{ route('services.finish', $service) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" onclick="return confirm('¿Confirmas que has terminado el trabajo?')" 
+                                            class="w-full md:w-auto inline-flex items-center justify-center px-6 py-3 bg-green-600 border border-transparent rounded-lg font-semibold text-white text-sm uppercase tracking-widest hover:bg-green-700 active:bg-green-800 transition shadow-lg transform hover:-translate-y-0.5">
+                                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            Finalizar Trabajo
+                                        </button>
+                                    </form>
+                                </div>
+
+                            {{-- CASO 3: FINALIZADO -> Mostrar Resumen de tiempo --}}
+                            @elseif($service->status === 'finalizado')
+                                <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
+                                    <div class="flex items-center text-green-800 dark:text-green-300">
+                                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <span class="font-bold text-lg">Servicio Completado</span>
+                                    </div>
+                                    <div class="mt-2 grid grid-cols-2 gap-4 text-sm">
+                                        <div>
+                                            <span class="block text-gray-500">Inicio:</span>
+                                            <span class="font-mono text-gray-800 dark:text-gray-200">{{ $service->started_at ? $service->started_at->format('h:i A') : '--' }}</span>
+                                        </div>
+                                        <div>
+                                            <span class="block text-gray-500">Fin:</span>
+                                            <span class="font-mono text-gray-800 dark:text-gray-200">{{ $service->finished_at ? $service->finished_at->format('h:i A') : '--' }}</span>
+                                        </div>
+                                        <div class="col-span-2 border-t border-green-200 pt-2 mt-2">
+                                            <span class="block text-gray-500">Tiempo Total de Respuesta:</span>
+                                            <span class="font-bold text-lg text-green-700 dark:text-green-400">
+                                                {{ $service->duration }} (Horas:Minutos)
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+
+                    @endif
+
                 <div class="p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
                     
                     {{-- Sección Principal (2/3 del ancho) --}}

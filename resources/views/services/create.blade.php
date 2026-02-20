@@ -43,10 +43,10 @@
 
                                 {{-- Título --}}
                                 <div>
-                                    <label for="title" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Título del Servicio</label>
+                                    <label for="title" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Folio de Servicio</label>
                                     <input type="text" name="title" id="title" required 
                                         class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 shadow-sm focus:border-slate-500 focus:ring-slate-500 sm:text-sm"
-                                        placeholder="Ej: Mantenimiento Preventivo CCTV"
+                                        placeholder="Ej: 190029912"
                                         value="{{ old('title') }}">
                                     @error('title') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
                                 </div>

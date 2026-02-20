@@ -107,4 +107,28 @@ class ServiceController extends Controller
         $service->delete();
         return redirect()->route('services.index')->with('success', 'Servicio eliminado/cancelado.');
     }
+
+    public function startService(Service $service)
+    {
+        Gate::authorize('update', $service);
+
+        $service->update([
+            'status' => 'en_proceso',
+            'started_at' => now(), // Captura fecha y hora actual
+        ]);
+
+        return redirect()->back()->with('success', 'Servicio iniciado. El reloj está corriendo.');
+    }
+
+    public function finishService(Service $service)
+    {
+        Gate::authorize('update', $service);
+
+        $service->update([
+            'status' => 'finalizado',
+            'finished_at' => now(),
+        ]);
+
+        return redirect()->back()->with('success', 'Servicio finalizado exitosamente.');
+    }
 }
